@@ -1,0 +1,30 @@
+<RobotShop>
+  <Root>
+    <Catalog>
+      <Robot Name="SuperDroid HD2-S" Description="SuperDroid HD2-S Mastiff Tactical Robot" Type="RB-Sdr-81" ModelNo="101" Price="32000" Shipping="32000" />
+      <Robot Name="SuperDroid HD2" Description="SuperDroid HD2 Robot " Type="RB-Sdr-64" ModelNo="102" Price="10110" Shipping="10110" />
+      <Robot Name="High Mobility Robot" Description="Guardian All Terrain High Mobility Robot" Type="RB-Rtk-02" ModelNo="103" Price="36735" Shipping="36735" />
+      <Robot Name="Autonomous Robot" Description="Summit XL 4WD Autonomous Robot" Type="RB-Rtk-04" ModelNo="104" Price="13831" Shipping="13831" />
+    </Catalog>
+    <SalesOrders>
+      <SalesOrder OrderNo="1000" SalesAssoc="SteveW" Customer="John Smith" TotalPrice="85057.5" Subtotal="77831" TotalShip="1000" Tax="6226.48">
+        <OrderItem Name="SuperDroid HD2-S" Quantity="2" Price="32000" TotalCost="64000" />
+        <OrderItem Name="Autonomous Robot" Quantity="1" Price="13831" TotalCost="13831" />
+      </SalesOrder>
+      <SalesOrder OrderNo="1001" SalesAssoc="SteveW" Customer="Karen Sears" TotalPrice="33256.4" Subtotal="30330" TotalShip="500" Tax="2426.4">
+        <OrderItem Name="SuperDroid HD2" Quantity="3" Price="10110" TotalCost="30330" />
+      </SalesOrder>
+      <SalesOrder OrderNo="2000" SalesAssoc="SteveW" Customer="John Smith" TotalPrice="42866.4" Subtotal="30330" TotalShip="10110" Tax="2426.4">
+        <OrderItem Name="SuperDroid HD2" Quantity="3" Price="10110" TotalCost="30330" />
+      </SalesOrder>
+    </SalesOrders>
+    <Customers>
+      <Customer Name="John Smith" />
+      <Customer Name="Karen Sears" />
+    </Customers>
+    <SalesAssocs>
+      <SalesAssoc Name="SteveW" />
+      <SalesAssoc Name="DickersonT" />
+    </SalesAssocs>
+  </Root>
+</RobotShop>
