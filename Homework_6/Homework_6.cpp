@@ -29,6 +29,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
 {
+	UNREFERENCED_PARAMETER(hPrevInstance);
+	UNREFERENCED_PARAMETER(lpCmdLine);
+
  	// TODO: Place code here.
 	const int X = 640;
 	const int Y = 480;

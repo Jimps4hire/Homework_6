@@ -28,3 +28,7 @@ _ReSharper*/
 *.vssscc
 $tf*/
 Homework_6.opensdf
+
+#ignore thumbnails created by windows
+#Ignore files build by Visual Studio
+*.dll
