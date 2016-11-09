@@ -5,6 +5,9 @@
 #include <FL/fl_message.H>
 #include "RobotShop.h"
 #include "Utility.h"
+#include "UI_Order.h"
+#include "UI_Customer.h"
+#include "UI_SalesAssociate.h"
 
 using namespace std;
 using namespace System;
@@ -104,18 +107,52 @@ void UI_Menu::quit_cb(Fl_Widget*, void*)
 }
 void UI_Menu::order_cb(Fl_Widget*, void*) 
 {
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	UI_Order* order = UI_Order::create();
+	Fl_Double_Window* dlg = order->create_panel();
+	order->open();
+
+	/*
 	Fl_Window* dlg = new Fl_Window(70, 70 , 400, 300 , "dialog" ) ;
     dlg->end();
-	dlg->show();
 	dlg->set_modal();
+	dlg->show();
 	while (dlg->visible() && Fl::check()) 
 		Fl::wait();
+	*/
 }
 void UI_Menu::customer_cb(Fl_Widget*, void*) 
 {
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	UI_Customer* customer = UI_Customer::create();
+	Fl_Double_Window* dlg = customer->create_panel();
+	customer->open();
+
 }
 void UI_Menu::salesAss_cb(Fl_Widget*, void*) 
 {
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	UI_SalesAssociate* sa = UI_SalesAssociate::create();
+	Fl_Double_Window* dlg = sa->create_panel();
+	sa->open();
 }
 void UI_Menu::part_cb(Fl_Widget*, void*) 
 {

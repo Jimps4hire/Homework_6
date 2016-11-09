@@ -10,7 +10,7 @@ using namespace System;
 OrderItem::OrderItem(void)
 {
 }
-OrderItem::OrderItem(string p_name, int p_quantity, double p_price, double p_totalcost)
+OrderItem::OrderItem(string p_name, double p_quantity, double p_price, double p_totalcost)
 	: name(p_name), quantity(p_quantity), price(p_price), totalcost(p_totalcost)
 {
 }
@@ -43,6 +43,6 @@ OrderItem* OrderItem::deserialize(XmlElement^ p_elm)
 	String^ attrPrice = p_elm->GetAttribute("Price");
 	String^ attrCost = p_elm->GetAttribute("TotalCost");
 
-	return new OrderItem(name, Convert::ToInt32(attrQty), Convert::ToSingle(attrPrice), Convert::ToSingle(attrCost));
+	return new OrderItem(name, Convert::ToSingle(attrQty), Convert::ToSingle(attrPrice), Convert::ToSingle(attrCost));
 }
 

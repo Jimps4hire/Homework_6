@@ -17,32 +17,38 @@ SalesOrder::SalesOrder(int p_orderNo, string p_salesAssoc, string p_customer)
 	totalShip = 0;
 	tax = 0;
 }
-SalesOrder::SalesOrder(int p_orderNo, string p_salesAssoc, string p_customer, double p_totalPrice, double p_subtotal, double p_totalShip, double p_tax)
-	: orderNo(p_orderNo), salesAssoc(p_salesAssoc), customer(p_customer), totalPrice(p_totalPrice), subtotal(p_subtotal), totalShip(p_totalShip), tax(p_tax)
+SalesOrder::SalesOrder(int p_orderNo, string p_salesAssoc, string p_customer, double p_totalPrice, double p_subtotal, double p_totalShip, double p_tax/*, double p_quantity*/)
+	: orderNo(p_orderNo), salesAssoc(p_salesAssoc), customer(p_customer), totalPrice(p_totalPrice), subtotal(p_subtotal), totalShip(p_totalShip), tax(p_tax)/*, quantity(p_quantity)*/
 {
 }
 SalesOrder::~SalesOrder(void)
 {
 }
-void SalesOrder::addItem(string p_name, int p_quantity, double p_price, double p_shipping)
+void SalesOrder::addItem(string p_name, double p_quantity, double p_price, double p_shipping)
 {
-	subtotal += p_price * p_quantity;
-	tax = subtotal * 0.08;
+	// subtotal: price*quantity + shipping
+	tax += p_price * p_quantity * 0.08;
 	totalShip += p_shipping;
-	totalPrice = subtotal + tax + totalShip;
+	subtotal += p_price * p_quantity + p_shipping;
+
+	totalPrice = subtotal + tax;
 
 	OrderItem* item = new OrderItem(p_name, p_quantity, p_price, p_quantity * p_price);
 	list.push_back(item);
+
+
 }
 void SalesOrder::addItem(OrderItem* item)
 {
 	list.push_back(item);
 }
+/*
 	int orderNo;
 //	time_t date;
 	string salesAssoc;
 	string customer;
 	double totalPrice, subtotal, totalShip, tax;
+	*/
 
 void SalesOrder::ViewOrderPerSA()
 {

@@ -21,11 +21,14 @@ public:
 	~RobotShop(void);
 
 	static RobotShop* create();
+	list<SalesOrder*> getSalesOrder();
 	Product* getProduct();
 	void AddOrder(SalesOrder* p_order);
 	void AddCustomer(Customer* p_customer);
 	void AddSalesAssoc(SalesAssoc* p_assoc);
 
+	list<Customer*> GetCustomer();
+	list<SalesAssoc*> GetSalesAssocs();
 	void ViewCatalog();
 	void ViewOrderPerSA();
 	void ViewCustomer();

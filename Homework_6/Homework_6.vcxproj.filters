@@ -94,6 +94,15 @@
     <ClInclude Include="UI_Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Order.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Customer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_SalesAssociate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -157,6 +166,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UI_Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Order.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Customer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_SalesAssociate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -16,17 +16,17 @@ private:
 //	time_t date;
 	string salesAssoc;
 	string customer;
-	double totalPrice, subtotal, totalShip, tax;
+	double totalPrice, subtotal, totalShip, tax/*, quantity*/;
 
 	list<OrderItem*> list;
 
 public:
 	SalesOrder(void);
 	SalesOrder(int p_orderNo, string p_salesAssoc, string p_customer);
-	SalesOrder(int p_orderNo, string p_salesAssoc, string p_customer, double totalPrice, double subtotal, double totalShip, double tax);
+	SalesOrder(int p_orderNo, string p_salesAssoc, string p_customer, double p_totalPrice, double p_subtotal, double p_totalShip, double p_tax/*, double p_quantity*/);
 	~SalesOrder(void);
 
-	void addItem(string p_name, int p_quantity, double p_price, double p_shiping);
+	void addItem(string p_name, double p_quantity, double p_price, double p_shiping);
 	void addItem(OrderItem* item);
 	void ViewOrderPerSA();
 

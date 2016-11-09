@@ -26,6 +26,10 @@ Product* RobotShop::getProduct()
 {
 	return product;
 }
+list<SalesOrder*> RobotShop::getSalesOrder()
+{
+	return salesOrders;
+}
 void RobotShop::AddOrder(SalesOrder* p_order)
 {
 	salesOrders.push_back(p_order);
@@ -35,6 +39,15 @@ void RobotShop::AddCustomer(Customer* p_customer)
 {
 	customers.push_back(p_customer);
 }
+list<Customer*> RobotShop::GetCustomer()
+{
+	return customers;
+}
+list<SalesAssoc*> RobotShop::GetSalesAssocs()
+{
+	return salesAssocs;
+}
+
 void RobotShop::AddSalesAssoc(SalesAssoc* p_assoc)
 {
 	salesAssocs.push_back(p_assoc);

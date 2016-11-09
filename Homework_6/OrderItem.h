@@ -7,12 +7,12 @@ class OrderItem
 {
 private:
 	string name;
-	int quantity;
+	double quantity;
 	double price;
 	double totalcost;
 public:
 	OrderItem(void);
-	OrderItem(string p_name, int p_quantity, double p_price, double p_totalcost);
+	OrderItem(string p_name, double p_quantity, double p_price, double p_totalcost);
 	~OrderItem(void);
 
 	void serialize(XmlElement^ p_elm);

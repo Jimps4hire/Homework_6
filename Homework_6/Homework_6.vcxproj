@@ -103,7 +103,10 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestCase.h" />
     <ClInclude Include="Torso.h" />
+    <ClInclude Include="UI_Customer.h" />
     <ClInclude Include="UI_Menu.h" />
+    <ClInclude Include="UI_Order.h" />
+    <ClInclude Include="UI_SalesAssociate.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
@@ -129,7 +132,10 @@
     </ClCompile>
     <ClCompile Include="TestCase.cpp" />
     <ClCompile Include="Torso.cpp" />
+    <ClCompile Include="UI_Customer.cpp" />
     <ClCompile Include="UI_Menu.cpp" />
+    <ClCompile Include="UI_Order.cpp" />
+    <ClCompile Include="UI_SalesAssociate.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
