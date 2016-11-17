@@ -59,7 +59,10 @@ Fl_Double_Window* UI_SalesAssociate::create_panel() {
   {
 	function_panel = new Fl_Double_Window(343, 122, "Customer");
 	{
+		/*
 		Fl_Group* o = new Fl_Group(10, 10, 270, 20);
+      o->end();
+	  */
 
 		{ f_name_input = new Fl_Input(10, 50, 320, 20, "Name:");
 		  f_name_input->tooltip("The customer name");
@@ -75,7 +78,6 @@ Fl_Double_Window* UI_SalesAssociate::create_panel() {
       { Fl_Box* box = new Fl_Box(235, 10, 45, 20);
         Fl_Group::current()->resizable(box);
       } // Fl_Box* o
-      o->end();
 	}
 
 	/*

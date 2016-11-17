@@ -160,42 +160,35 @@ void RobotModel::serialize(XmlDocument^ p_doc, XmlElement^ p_elm)
 
 	if(head != NULL)
 	{
-		XmlElement^ elmPart = p_doc->CreateElement("RobotPart");
-		head->serialize(elmPart);
-		p_elm->AppendChild(elmPart);
-	}
-
-	if(head != NULL)
-	{
-		XmlElement^ elmPart = p_doc->CreateElement("RobotPart");
+		XmlElement^ elmPart = p_doc->CreateElement("Head");
 		head->serialize(elmPart);
 		p_elm->AppendChild(elmPart);
 	}
 
 	if(locomotor != NULL)
 	{
-		XmlElement^ elmPart = p_doc->CreateElement("RobotPart");
+		XmlElement^ elmPart = p_doc->CreateElement("Locomotor");
 		locomotor->serialize(elmPart);
 		p_elm->AppendChild(elmPart);
 	}
 
 	if(torso != NULL)
 	{
-		XmlElement^ elmPart = p_doc->CreateElement("RobotPart");
+		XmlElement^ elmPart = p_doc->CreateElement("Torso");
 		torso->serialize(elmPart);
 		p_elm->AppendChild(elmPart);
 	}
 
 	if(battery != NULL)
 	{
-		XmlElement^ elmPart = p_doc->CreateElement("RobotPart");
+		XmlElement^ elmPart = p_doc->CreateElement("Battery");
 		battery->serialize(elmPart);
 		p_elm->AppendChild(elmPart);
 	}
 
 	if(arm != NULL)
 	{
-		XmlElement^ elmPart = p_doc->CreateElement("RobotPart");
+		XmlElement^ elmPart = p_doc->CreateElement("Arm");
 		arm->serialize(elmPart);
 		p_elm->AppendChild(elmPart);
 	}

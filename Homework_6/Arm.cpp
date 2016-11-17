@@ -18,7 +18,7 @@ Arm::~Arm(void)
 
 bool Arm::addQuantity(int p_quantity)
 {
-	if(quantity + p_quantity == 2)
+	if(quantity + p_quantity <= 2)
 	{
 		quantity += p_quantity;
 		return true;

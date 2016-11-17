@@ -27,10 +27,11 @@ UI_Customer* UI_Customer::create()
 void UI_Customer::open() {
   if (!function_panel) create_panel();
   
-    f_name_input->value(0);
+//    f_name_input->value("test");
     f_name_input->show();
 
   function_panel->show();
+
 //  const char* message = 0;
   for (;;) { // repeat as long as there are errors
     for (;;) {
@@ -55,12 +56,14 @@ void UI_Customer::open() {
 BREAK2:
   function_panel->hide();
 }
-Fl_Double_Window* UI_Customer::create_panel() {
+Fl_Window* UI_Customer::create_panel() {
   {
-	function_panel = new Fl_Double_Window(343, 122, "Customer");
+	function_panel = new Fl_Window(343, 122, "Customer");
 	{
+		/*
 		Fl_Group* o = new Fl_Group(10, 10, 270, 20);
-
+		  o->end();
+		  */
 		{ f_name_input = new Fl_Input(10, 50, 320, 20, "Name:");
 		  f_name_input->tooltip("The customer name");
 		  f_name_input->labelfont(1);
@@ -71,11 +74,9 @@ Fl_Double_Window* UI_Customer::create_panel() {
 		  f_name_input->when(FL_WHEN_NEVER);
 		} // Fl_Input* f_name_input
 
-
       { Fl_Box* box = new Fl_Box(235, 10, 45, 20);
         Fl_Group::current()->resizable(box);
       } // Fl_Box* o
-      o->end();
 	}
 
 	/*

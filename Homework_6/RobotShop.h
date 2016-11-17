@@ -1,4 +1,5 @@
 #pragma once
+#include "Inventory.h"
 #include "Product.h"
 #include "SalesOrder.h"
 #include "Customer.h"
@@ -11,6 +12,7 @@ private:
 
 	bool fileDirty;
 	bool fileOpened;
+	Inventory* inventory;
 	Product* product;
 	list<SalesOrder*> salesOrders;
 	list<Customer*> customers;
@@ -27,6 +29,7 @@ public:
 	void AddCustomer(Customer* p_customer);
 	void AddSalesAssoc(SalesAssoc* p_assoc);
 
+	Inventory* GetInventory();
 	list<Customer*> GetCustomer();
 	list<SalesAssoc*> GetSalesAssocs();
 	void ViewCatalog();

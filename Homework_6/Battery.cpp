@@ -19,7 +19,7 @@ Battery::~Battery(void)
 
 bool Battery::addQuantity(int p_quantity)
 {
-	if(quantity + p_quantity == 3)
+	if(quantity + p_quantity <= 3)
 	{
 		quantity += p_quantity;
 		return true;

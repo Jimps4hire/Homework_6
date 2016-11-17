@@ -12,7 +12,7 @@ class UI_Customer
 	static UI_Customer *customer;
 
 	Fl_Input *f_name_input;
-	Fl_Double_Window *function_panel;
+	Fl_Window *function_panel;
 	Fl_Return_Button *f_panel_ok;
 	Fl_Button *f_panel_cancel;
 
@@ -21,7 +21,7 @@ public:
 	~UI_Customer(void);
 
 	static UI_Customer* create();
-	Fl_Double_Window* create_panel();
+	Fl_Window* create_panel();
 	void open();
 	void CreateCustomer();
 };

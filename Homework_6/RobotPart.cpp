@@ -18,6 +18,7 @@ RobotPart::RobotPart(void)
 RobotPart::RobotPart(string p_name, string p_desc, string p_type, int p_partNo, double p_weight, double p_cost)
 	: name(p_name), description(p_desc),type(p_type), partNo(p_partNo),weight(p_weight),cost(p_cost)
 {
+	quantity = 0;
 }
 
 RobotPart::~RobotPart(void)

@@ -15,5 +15,6 @@ public:
 	void CreateCustomer(RobotShop* shop);
 	void CreateSalesAssoc(RobotShop* shop);
 	void CreateOrder(RobotShop* shop);
+	void CreateParts(RobotShop* shop);
 };
 

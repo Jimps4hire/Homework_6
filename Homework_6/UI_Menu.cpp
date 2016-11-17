@@ -89,6 +89,31 @@ void UI_Menu::save_cb(Fl_Widget*, void*)
 	Fl_Native_File_Chooser fnfc;
 	const char *c = "RobotShop.xml";
 
+	/*
+	fnfc.title("Save To:");
+	fnfc.type(Fl_Native_File_Chooser::BROWSE_SAVE_FILE);
+	fnfc.filter("Robot Shop Files\t*.xml\n");
+	if (fnfc.show() != 0) return;
+	c = fnfc.filename();
+	*/
+
+	// save the file
+	robotShop->serialize(c);
+}
+void UI_Menu::saveas_cb(Fl_Widget*, void*) 
+{
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+//		fl_choice("Robot Shop is not open", "Close",  NULL, NULL);
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	// save xml file
+	Fl_Native_File_Chooser fnfc;
+	const char *c = "RobotShop.xml";
+
 	fnfc.title("Save To:");
 	fnfc.type(Fl_Native_File_Chooser::BROWSE_SAVE_FILE);
 	fnfc.filter("Robot Shop Files\t*.xml\n");
@@ -97,9 +122,6 @@ void UI_Menu::save_cb(Fl_Widget*, void*)
 
 	// save the file
 	robotShop->serialize(c);
-}
-void UI_Menu::saveas_cb(Fl_Widget*, void*) 
-{
 }
 void UI_Menu::quit_cb(Fl_Widget*, void*) 
 {
@@ -137,7 +159,7 @@ void UI_Menu::customer_cb(Fl_Widget*, void*)
 	}
 
 	UI_Customer* customer = UI_Customer::create();
-	Fl_Double_Window* dlg = customer->create_panel();
+	Fl_Window* dlg = customer->create_panel();
 	customer->open();
 
 }

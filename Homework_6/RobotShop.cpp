@@ -10,6 +10,7 @@ RobotShop* RobotShop::robotShop = new RobotShop();
 
 RobotShop::RobotShop(void)
 {
+	inventory = new Inventory();
 	product = new Product();
 	fileDirty = false;
 	fileOpened = false;
@@ -25,6 +26,10 @@ RobotShop* RobotShop::create()
 Product* RobotShop::getProduct()
 {
 	return product;
+}
+Inventory* RobotShop::GetInventory()
+{
+	return inventory;
 }
 list<SalesOrder*> RobotShop::getSalesOrder()
 {

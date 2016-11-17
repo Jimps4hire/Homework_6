@@ -103,6 +103,9 @@
     <ClInclude Include="UI_SalesAssociate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UI_RobotPart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -175,6 +178,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UI_SalesAssociate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_RobotPart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include <list>
 #include "RobotPart.h"
 using namespace std;
+using namespace System::Xml;
 
 class Inventory
 {
@@ -21,6 +22,9 @@ public:
 	list<RobotPart*> getBatteryList();
 	list<RobotPart*> getLocomotorList();
 	list<RobotPart*> getTorsoList();
+	void createParts(void);
 	RobotPart* getPart(string p_name, int p_partNo);
+	void serialize(XmlDocument^ p_doc, XmlElement^ p_elm);
+	Inventory* deserialize(XmlElement^ p_elm);
 };
 
