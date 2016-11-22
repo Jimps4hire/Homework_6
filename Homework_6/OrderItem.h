@@ -17,5 +17,9 @@ public:
 
 	void serialize(XmlElement^ p_elm);
 	static OrderItem* deserialize(XmlElement^ p_elm);
+	string getName();
+	double getQuantity();
+	double getPrice();
+	double getTotalCost();
 };
 

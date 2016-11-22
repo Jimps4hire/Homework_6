@@ -8,6 +8,12 @@
 #include "UI_Order.h"
 #include "UI_Customer.h"
 #include "UI_SalesAssociate.h"
+#include "TestCase.h"
+#include "UI_RobotPart.h"
+#include "UI_RobotModel.h"
+#include "UI_BrowseCatalog.h"
+#include "UI_EditRobotPart.h"
+#include "UI_EditRobotModel.h"
 
 using namespace std;
 using namespace System;
@@ -30,14 +36,18 @@ Fl_Menu_Item menuitems[] = {
 	{ "Robot &Model",          FL_COMMAND + 'm', (Fl_Callback *)UI_Menu::model_cb },
     { 0 },
 
-	{ "&Report", 0, 0, 0, FL_SUBMENU },
-	{ "All Orders",         FL_COMMAND + FL_SHIFT + 'x', (Fl_Callback *)UI_Menu::orders_cb },
-	{ "Orders by Customer",      FL_COMMAND + FL_SHIFT + 'c', UI_Menu::orderByCust_cb },
-	{ "Order by Sales Associate",      FL_COMMAND + FL_SHIFT + 'a', UI_Menu::orderBySA_cb, 0, FL_MENU_DIVIDER },
-	{ "All Customers",   FL_COMMAND + FL_CTRL + 'c', UI_Menu::allCust_cb },
-	{ "All Sales Associates",   FL_COMMAND + FL_CTRL + 'a', UI_Menu::allSA_cb, 0, FL_MENU_DIVIDER },
-	{ "All Robort Models",   FL_COMMAND + FL_SHIFT + 'm', UI_Menu::allModels_cb },
-	{ "All Robot Parts",   FL_COMMAND + FL_SHIFT + 'p', UI_Menu::allParts_cb },
+	{ "&Edit", 0, 0, 0, FL_SUBMENU },
+	{ "Hide Robot Part",         FL_COMMAND + FL_SHIFT + 'h', (Fl_Callback *)UI_Menu::hidepart_cb },
+	{ "Hide Robot Model",      FL_COMMAND + FL_SHIFT + 'c', UI_Menu::hidemodel_cb },
+//	{ "Order by Sales Associate",      FL_COMMAND + FL_SHIFT + 'a', UI_Menu::orderBySA_cb, 0, FL_MENU_DIVIDER },
+//	{ "All Customers",   FL_COMMAND + FL_CTRL + 'c', UI_Menu::allCust_cb },
+//	{ "All Sales Associates",   FL_COMMAND + FL_CTRL + 'a', UI_Menu::allSA_cb, 0, FL_MENU_DIVIDER },
+//	{ "All Robort Models",   FL_COMMAND + FL_SHIFT + 'm', UI_Menu::allModels_cb },
+//	{ "All Robot Parts",   FL_COMMAND + FL_SHIFT + 'p', UI_Menu::allParts_cb },
+	{ 0 },
+
+	{ "&Browse", 0, 0, 0, FL_SUBMENU },
+	{ "Browse Catalog",         FL_COMMAND + FL_SHIFT + 'w', (Fl_Callback *)UI_Menu::browsecatalog_cb },
 	{ 0 },
 
     { 0 }
@@ -58,6 +68,27 @@ UI_Menu::~UI_Menu(void)
 }
 void UI_Menu::new_cb(Fl_Widget*, void*) 
 {
+	// open xml file
+	const char *c;
+	Fl_Native_File_Chooser fnfc;
+	fnfc.title("New:");
+	fnfc.type(Fl_Native_File_Chooser::BROWSE_FILE);
+	fnfc.filter("Robot Shop Files\t*.xml\n");
+	if (fnfc.show() != 0) return;
+	c = fnfc.filename();
+
+	// load the file
+	RobotShop robotShop;
+
+	// create robot shop
+	TestCase testcase;
+	testcase.CreateParts(&robotShop);
+	testcase.CreateRobots(&robotShop);
+	testcase.CreateOrder(&robotShop);
+	testcase.CreateCustomer(&robotShop);
+	testcase.CreateSalesAssoc(&robotShop);
+
+	robotShop.serialize(c);
 }
 void UI_Menu::open_cb(Fl_Widget*, void*) 
 {
@@ -178,15 +209,68 @@ void UI_Menu::salesAss_cb(Fl_Widget*, void*)
 }
 void UI_Menu::part_cb(Fl_Widget*, void*) 
 {
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	UI_RobotPart* part = UI_RobotPart::create();
+	Fl_Double_Window* dlg = part->create_panel();
+	part->open();
 }
 void UI_Menu::model_cb(Fl_Widget*, void*) 
 {
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	UI_RobotModel* model = UI_RobotModel::create();
+	Fl_Double_Window* dlg = model->create_panel();
+	model->open();
 }
-void UI_Menu::orders_cb(Fl_Widget*, void*) 
+void UI_Menu::browsecatalog_cb(Fl_Widget*, void*) 
 {
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	UI_BrowseCatalog* catalog = UI_BrowseCatalog::create();
+	Fl_Double_Window* dlg = catalog->create_panel();
+	catalog->open();
 }
-void UI_Menu::orderByCust_cb(Fl_Widget*, void*) 
+void UI_Menu::hidepart_cb(Fl_Widget*, void*) 
 {
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	UI_EditRobotPart* part = UI_EditRobotPart::create();
+	Fl_Double_Window* dlg = part->create_panel();
+	part->open();
+}
+void UI_Menu::hidemodel_cb(Fl_Widget*, void*) 
+{
+	RobotShop* robotShop = RobotShop::create();
+	if(!robotShop->IsFileOpen())
+	{
+		fl_message("Robot Shop is not open");
+		return;
+	}
+
+	UI_EditRobotModel* model = UI_EditRobotModel::create();
+	Fl_Double_Window* dlg = model->create_panel();
+	model->open();
 }
 void UI_Menu::orderBySA_cb(Fl_Widget*, void*) 
 {

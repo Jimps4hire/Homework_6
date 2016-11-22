@@ -13,12 +13,14 @@ using namespace System;
 RobotPart::RobotPart(void)
 {
 	quantity = 0;
+	hide = false;
 }
 
 RobotPart::RobotPart(string p_name, string p_desc, string p_type, int p_partNo, double p_weight, double p_cost)
 	: name(p_name), description(p_desc),type(p_type), partNo(p_partNo),weight(p_weight),cost(p_cost)
 {
 	quantity = 0;
+	hide = false;
 }
 
 RobotPart::~RobotPart(void)
@@ -35,6 +37,30 @@ string RobotPart::getType()
 int RobotPart::getPartNo()
 {
 	return partNo;
+}
+string RobotPart::getDesc()
+{
+	return description;
+}
+int RobotPart::getQuantity()
+{
+	return quantity;
+}
+double RobotPart::getWeight()
+{
+	return weight;
+}
+double RobotPart::getCost()
+{
+	return cost;
+}
+void RobotPart::setHide(bool p_hide)
+{
+	hide = p_hide;
+}
+bool RobotPart::getHide()
+{
+	return hide;
 }
 RobotPart* RobotPart::createPart(string p_name)
 {
@@ -131,6 +157,10 @@ bool RobotPart::addQuantity(int p_quantity)
 		return false;
 	}
 }
+void RobotPart::setQuantity(int p_quantity)
+{
+	quantity = p_quantity;
+}
 
 void RobotPart::serialize(XmlElement^ p_elm)
 {
@@ -159,6 +189,15 @@ void RobotPart::serialize(XmlElement^ p_elm)
 //	String^ Qt = gcnew String(strQt.c_str());
 	p_elm->SetAttribute("Quantity", Convert::ToString(quantity));
 
+	if(hide)
+	{
+		p_elm->SetAttribute("Hide", "true");
+	}
+	else
+	{
+		p_elm->SetAttribute("Hide", "false");
+	}
+
 }
 RobotPart* RobotPart::deserialize(XmlElement^ p_elm)
 {
@@ -172,13 +211,20 @@ RobotPart* RobotPart::deserialize(XmlElement^ p_elm)
 	std::string type = msclr::interop::marshal_as<std::string>(attrType);
 
 	String^ attrPartNo = p_elm->GetAttribute("PartNo");
-	String^ attrWeight = p_elm->GetAttribute("Cost");
-	String^ attrCost = p_elm->GetAttribute("Weight");
+	String^ attrWeight = p_elm->GetAttribute("Weight");
+	String^ attrCost = p_elm->GetAttribute("Cost");
 	String^ attrQty = p_elm->GetAttribute("Quantity");
+	String^ attrHide = p_elm->GetAttribute("Hide");
+	std::string hide = msclr::interop::marshal_as<std::string>(attrHide);
 
 	RobotPart* part = createPart(name, desc, type, Convert::ToInt32(attrPartNo), 
 		Convert::ToSingle(attrWeight), Convert::ToSingle(attrCost));
 	part->addQuantity(Convert::ToInt32(attrQty));
+	if(hide == "true")
+	{
+		part->setHide(true);
+	}
+
 	return part;
 }
 

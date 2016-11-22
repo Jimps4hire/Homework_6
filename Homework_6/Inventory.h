@@ -22,9 +22,10 @@ public:
 	list<RobotPart*> getBatteryList();
 	list<RobotPart*> getLocomotorList();
 	list<RobotPart*> getTorsoList();
-	void createParts(void);
+//	void createParts(void);
+	void addPart(RobotPart* p_part);
 	RobotPart* getPart(string p_name, int p_partNo);
 	void serialize(XmlDocument^ p_doc, XmlElement^ p_elm);
-	Inventory* deserialize(XmlElement^ p_elm);
+	static Inventory* deserialize(XmlElement^ p_elm);
 };
 

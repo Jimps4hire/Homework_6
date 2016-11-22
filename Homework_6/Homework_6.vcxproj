@@ -55,7 +55,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>fltk.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fltk.lib;fltkimages.lib;fltkjpeg.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClInclude Include="Arm.h" />
     <ClInclude Include="Battery.h" />
+    <ClInclude Include="Control_Table.h" />
     <ClInclude Include="Customer.h" />
     <ClInclude Include="Head.h" />
     <ClInclude Include="Homework_6.h" />
@@ -92,7 +93,6 @@
     <ClInclude Include="OrderItem.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="RobotCatalog.h" />
     <ClInclude Include="RobotModel.h" />
     <ClInclude Include="RobotPart.h" />
     <ClInclude Include="RobotShop.h" />
@@ -103,9 +103,13 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestCase.h" />
     <ClInclude Include="Torso.h" />
+    <ClInclude Include="UI_BrowseCatalog.h" />
     <ClInclude Include="UI_Customer.h" />
+    <ClInclude Include="UI_EditRobotModel.h" />
+    <ClInclude Include="UI_EditRobotPart.h" />
     <ClInclude Include="UI_Menu.h" />
     <ClInclude Include="UI_Order.h" />
+    <ClInclude Include="UI_RobotModel.h" />
     <ClInclude Include="UI_RobotPart.h" />
     <ClInclude Include="UI_SalesAssociate.h" />
     <ClInclude Include="Utility.h" />
@@ -113,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="Arm.cpp" />
     <ClCompile Include="Battery.cpp" />
+    <ClCompile Include="Control_Table.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="Head.cpp" />
     <ClCompile Include="Homework_6.cpp" />
@@ -120,7 +125,6 @@
     <ClCompile Include="Locomotor.cpp" />
     <ClCompile Include="OrderItem.cpp" />
     <ClCompile Include="Product.cpp" />
-    <ClCompile Include="RobotCatalog.cpp" />
     <ClCompile Include="RobotModel.cpp" />
     <ClCompile Include="RobotPart.cpp" />
     <ClCompile Include="RobotShop.cpp" />
@@ -133,9 +137,13 @@
     </ClCompile>
     <ClCompile Include="TestCase.cpp" />
     <ClCompile Include="Torso.cpp" />
+    <ClCompile Include="UI_BrowseCatalog.cpp" />
     <ClCompile Include="UI_Customer.cpp" />
+    <ClCompile Include="UI_EditRobotModel.cpp" />
+    <ClCompile Include="UI_EditRobotPart.cpp" />
     <ClCompile Include="UI_Menu.cpp" />
     <ClCompile Include="UI_Order.cpp" />
+    <ClCompile Include="UI_RobotModel.cpp" />
     <ClCompile Include="UI_RobotPart.cpp" />
     <ClCompile Include="UI_SalesAssociate.cpp" />
     <ClCompile Include="Utility.cpp" />

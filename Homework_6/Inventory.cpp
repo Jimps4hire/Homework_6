@@ -31,6 +31,30 @@ list<RobotPart*> Inventory::getTorsoList()
 {
 	return torsolist;
 }
+void Inventory::addPart(RobotPart* p_part)
+{
+	string name = p_part->getName();
+	if(name == "Arm")
+	{
+		armlist.push_back(p_part);
+	}
+	else if(name == "Locomotor")
+	{
+		locomotorlist.push_back(p_part);
+	}
+	else if(name == "Head")
+	{
+		headlist.push_back(p_part);
+	}
+	else if(name == "Battery")
+	{
+		batterylist.push_back(p_part);
+	}
+	else if(name == "Torso")
+	{
+		torsolist.push_back(p_part);
+	}
+}
 RobotPart* Inventory::getPart(string p_name, int p_partNo)
 {
 	if(p_name == "Arm")
@@ -182,7 +206,60 @@ void Inventory::serialize(XmlDocument^ p_doc, XmlElement^ p_elm)
 }
 Inventory* Inventory::deserialize(XmlElement^ p_elm)
 {
-	Inventory* inventory;
+	Inventory* inventory = new Inventory();
+	if ( p_elm->HasChildNodes )
+	{
+		for ( int i = 0; i < p_elm->ChildNodes->Count; i++ )
+		{
+			XmlElement^ note = (XmlElement^)p_elm->ChildNodes[ i ];
+			if(note->Name == "Arms")
+			{
+				for ( int j = 0; j < note->ChildNodes->Count; j++ )
+				{
+					XmlElement^ child = (XmlElement^)note->ChildNodes[ j ];
+					RobotPart* part = RobotPart::deserialize(child);
+					inventory->armlist.push_back(part);
+				}
+			}
+			else if(note->Name == "Locomotors")
+			{
+				for ( int j = 0; j < note->ChildNodes->Count; j++ )
+				{
+					XmlElement^ child = (XmlElement^)note->ChildNodes[ j ];
+					RobotPart* part = RobotPart::deserialize(child);
+					inventory->locomotorlist.push_back(part);
+				}
+			}
+			else if(note->Name == "Heads")
+			{
+				for ( int j = 0; j < note->ChildNodes->Count; j++ )
+				{
+					XmlElement^ child = (XmlElement^)note->ChildNodes[ j ];
+					RobotPart* part = RobotPart::deserialize(child);
+					inventory->headlist.push_back(part);
+				}
+			}
+			else if(note->Name == "Batterys")
+			{
+				for ( int j = 0; j < note->ChildNodes->Count; j++ )
+				{
+					XmlElement^ child = (XmlElement^)note->ChildNodes[ j ];
+					RobotPart* part = RobotPart::deserialize(child);
+					inventory->batterylist.push_back(part);
+				}
+			}
+			else if(note->Name == "Torsos")
+			{
+				for ( int j = 0; j < note->ChildNodes->Count; j++ )
+				{
+					XmlElement^ child = (XmlElement^)note->ChildNodes[ j ];
+					RobotPart* part = RobotPart::deserialize(child);
+					inventory->torsolist.push_back(part);
+				}
+			}
+
+		}
+	}
 	return inventory;
 }
 

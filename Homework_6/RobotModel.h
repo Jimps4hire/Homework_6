@@ -17,14 +17,18 @@ private:
 	double shipping;
 	bool status;
 	RobotPart *head, *locomotor, *torso, *battery, *arm;
+	bool hide;
 
 public:
 	RobotModel(string p_name, string p_description, string p_type, int p_modelNO, double p_price, double p_shipping);
 	~RobotModel(void);
 	int getModelNo();
 	string getName();
+	string getType();
 	double getPrice();
 	double getShipping();
+	void setHide(bool p_hide);
+	bool getHide();
 	bool addPart(RobotPart* p_part, int p_quantity);
 	bool addPart(string p_name, string p_desc, string p_type, int p_partNo, double p_weight, double p_price, int p_quantity);
 	void ViewRobot();

@@ -13,7 +13,7 @@
 #include "RobotShop.h"
 #include "TestCase.h"
 
-int APIENTRY _tWinMain1(HINSTANCE hInstance,
+int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
@@ -40,7 +40,7 @@ int APIENTRY _tWinMain1(HINSTANCE hInstance,
 	// Enter the “command loop” waiting for events
 	return(Fl::run());
 }
-int APIENTRY _tWinMain(HINSTANCE hInstance,
+int APIENTRY _tWinMain1(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
@@ -51,7 +51,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	// create robot shop
 	TestCase testcase;
-	testcase.CreateCategory(robotShop);
+	testcase.CreateParts(robotShop);
+	testcase.CreateRobots(robotShop);
 	testcase.CreateOrder(robotShop);
 	testcase.CreateCustomer(robotShop);
 	testcase.CreateSalesAssoc(robotShop);

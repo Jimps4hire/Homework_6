@@ -19,13 +19,13 @@ public:
 	static void salesAss_cb(Fl_Widget*, void*); 
 	static void part_cb(Fl_Widget*, void*); 
 	static void model_cb(Fl_Widget*, void*); 
-	static void orders_cb(Fl_Widget*, void*); 
-	static void orderByCust_cb(Fl_Widget*, void*); 
+	static void hidepart_cb(Fl_Widget*, void*); 
+	static void hidemodel_cb(Fl_Widget*, void*); 
 	static void orderBySA_cb(Fl_Widget*, void*); 
 	static void allCust_cb(Fl_Widget*, void*); 
 	static void allSA_cb(Fl_Widget*, void*); 
 	static void allModels_cb(Fl_Widget*, void*); 
 	static void allParts_cb(Fl_Widget*, void*); 
-
+	static void browsecatalog_cb(Fl_Widget*, void*); 
 };
 

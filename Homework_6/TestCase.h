@@ -11,10 +11,11 @@ class TestCase
 public:
 	TestCase(void);
 	~TestCase(void);
-	void CreateCategory(RobotShop* shop);
+
+	void CreateParts(RobotShop* shop);
+	void CreateRobots(RobotShop* shop);
 	void CreateCustomer(RobotShop* shop);
 	void CreateSalesAssoc(RobotShop* shop);
 	void CreateOrder(RobotShop* shop);
-	void CreateParts(RobotShop* shop);
 };
 

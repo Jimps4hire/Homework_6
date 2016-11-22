@@ -11,27 +11,26 @@
 
 class UI_RobotPart
 {
-//	static UI_Order *order;
+	static UI_RobotPart *part;
 
-	Fl_Choice *f_salesagent_choice;
-	Fl_Choice *f_customer_choice;
-	Fl_Choice *f_robotModel_choice;
-	Fl_Light_Button *f_c_button;
-	Fl_Input *f_name_input;
-	Fl_Input *f_return_type_input;
-	Fl_Input *f_price_input;
-	Fl_Input *f_quantity_input;
-	Fl_Input *f_shipping_input;
-	Fl_Input *f_tax_input;
-	Fl_Input *f_subtotal_input;
-	Fl_Input *f_total_input;
+	Fl_Choice *f_part_choice;
+	Fl_Input *f_desc_input;
+	Fl_Input *f_type_input;
+	Fl_Input *f_partno_input;
+	Fl_Input *f_weight_input;
+	Fl_Input *f_cost_input;
+//	Fl_Input *f_total_input;
 	Fl_Return_Button *f_panel_ok;
 	Fl_Button *f_panel_cancel;
-	Fl_Text_Editor *f_comment_input;
+//	Fl_Text_Editor *f_comment_input;
 	Fl_Double_Window *function_panel;
 
 public:
 	UI_RobotPart(void);
 	~UI_RobotPart(void);
+	static UI_RobotPart* create();
+	Fl_Double_Window* create_panel();
+	void open();
+	void CreatePart();
 };
 

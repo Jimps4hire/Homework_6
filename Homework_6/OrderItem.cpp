@@ -15,14 +15,25 @@ OrderItem::OrderItem(string p_name, double p_quantity, double p_price, double p_
 {
 }
 
-
 OrderItem::~OrderItem(void)
 {
 }
-	string name;
-	int quantity;
-	double price;
-	double totalcost;
+string OrderItem::getName()
+{
+	return name;
+}
+double OrderItem::getQuantity()
+{
+	return quantity;
+}
+double OrderItem::getPrice()
+{
+	return price;
+}
+double OrderItem::getTotalCost()
+{
+	return totalcost;
+}
 void OrderItem::serialize(XmlElement^ p_elm)
 {
 	String^ nm = gcnew String(name.c_str());

@@ -1,37 +1,77 @@
 <RobotShop>
   <Root>
-    <Catalog>
-      <Robot Name="SuperDroid HD2-S" Description="SuperDroid HD2-S Mastiff Tactical Robot" Type="RB-Sdr-81" ModelNo="101" Price="32000" Shipping="32000">
-        <Head Name="Head" Description="Robot Sputnik WiFi Mobile " Type="RB-Drr-10" PartNo="201" Cost="1595" Weight="80" Quantity="1" />
-        <Locomotor Name="Locomotor" Description="Zumo Tracked Robot " Type="RB-Pol-282" PartNo="301" Cost="99" Weight="45" Quantity="1" />
-        <Torso Name="Torso" Description="Lynxmotion Johnny 5 Torso" Type="RB-Lyn-366" PartNo="401" Cost="550" Weight="20" Quantity="1" />
-        <Battery Name="Battery" Description="Neato XV NiMH Batteries" Type="RB-Nto-05" PartNo="501" Cost="50" Weight="2" Quantity="2" />
-        <Arm Name="Arm" Description="Lynxmotion AL5A Robotic Arm" Type="RB-Owi-41" PartNo="101" Cost="2500" Weight="300" Quantity="1" />
+    <Parts>
+      <Arms>
+        <Arm Name="Arm" Description="Lynxmotion AL5A Robotic Arm" Type="RB-Owi-41" PartNo="101" Cost="2500" Weight="300" Quantity="2" Hide="false" />
+        <Arm Name="Arm" Description="Mover6 6DOF Robot Arm " Type="RB-Lyn-842" PartNo="102" Cost="2699" Weight="400" Quantity="0" Hide="false" />
+        <Arm Name="Arm" Description="Mover4 Robot Arm" Type="RB-Rbo-85" PartNo="103" Cost="1800" Weight="350" Quantity="0" Hide="false" />
+        <Arm Name="Arm" Description="MeArm Nuka Robotic Arm" Type="RB-Hex-54" PartNo="104" Cost="1850" Weight="200" Quantity="0" Hide="false" />
+        <Arm Name="Arm" Description="Lynxmotion AL5B Robotic Arm" Type="RB-Com-02" PartNo="105" Cost="1950" Weight="250" Quantity="0" Hide="false" />
+        <Arm Name="Arm" Description="Lynxmotion AL5C Robotic Arm" Type="RB-Com-05" PartNo="106" Cost="1950" Weight="250" Quantity="0" Hide="false" />
+      </Arms>
+      <Locomotors>
+        <Locomotor Name="Locomotor" Description="Zumo Tracked Robot " Type="RB-Pol-282" PartNo="301" Cost="99" Weight="45" Quantity="1" Hide="false" />
+        <Locomotor Name="Locomotor" Description="Zumo 32U4 Robot " Type="RB-Pol-330" PartNo="302" Cost="140" Weight="60" Quantity="1" Hide="false" />
+        <Locomotor Name="Locomotor" Description="Line Following Robot " Type="RB-Dig-99" PartNo="303" Cost="160" Weight="50" Quantity="1" Hide="false" />
+        <Locomotor Name="Locomotor" Description="Agent 390 Tracked Robot " Type="RB-Sct-935" PartNo="304" Cost="389" Weight="50" Quantity="1" Hide="false" />
+      </Locomotors>
+      <Heads>
+        <Head Name="Head" Description="Robot Sputnik WiFi Mobile " Type="RB-Drr-10" PartNo="201" Cost="1595" Weight="80" Quantity="0" Hide="false" />
+        <Head Name="Head" Description="Robot Sputnik3 WiFi Mobile  " Type="RB-Drr-15" PartNo="202" Cost="1750" Weight="60" Quantity="0" Hide="true" />
+        <Head Name="Head" Description="Robot DRK8080 WiFi Mobile" Type="RB-Drr-01" PartNo="203" Cost="1190" Weight="50" Quantity="0" Hide="false" />
+        <Head Name="Head" Description="Robot X80 WiFi Mobile" Type="RB-Drr-09" PartNo="204" Cost="1295" Weight="70" Quantity="1" Hide="false" />
+      </Heads>
+      <Batterys>
+        <Battery Name="Battery" Description="Neato XV NiMH Batteries" Type="RB-Nto-05" PartNo="501" Cost="50" Weight="2" Quantity="0" Hide="false" />
+        <Battery Name="Battery" Description="Roomba Battery NiMH 3500mAH" Type="RB-Ten-18" PartNo="502" Cost="30" Weight="2" Quantity="0" Hide="false" />
+        <Battery Name="Battery" Description="Lithium Polymer Battery" Type="RB-Spa-672" PartNo="503" Cost="10" Weight="1" Quantity="3" Hide="false" />
+        <Battery Name="Battery" Description="Vex 7.2V. 3000mAH NiMh Battery" Type="RB-Inn-178" PartNo="504" Cost="30" Weight="1" Quantity="0" Hide="false" />
+      </Batterys>
+      <Torsos>
+        <Torso Name="Torso" Description="Lynxmotion Johnny 5 Torso" Type="RB-Lyn-366" PartNo="401" Cost="550" Weight="20" Quantity="0" Hide="false" />
+        <Torso Name="Torso" Description="Lynxmotion Humanoid Biped Torso" Type="RB-Lyn-124" PartNo="402" Cost="230" Weight="15" Quantity="0" Hide="false" />
+        <Torso Name="Torso" Description="Lynxmotion 209 Biped Torso" Type="RB-Lyn-196" PartNo="403" Cost="150" Weight="10" Quantity="0" Hide="false" />
+        <Torso Name="Torso" Description="Lynxmotion Biped Scout Torso" Type="RB-Lyn-197" PartNo="404" Cost="160" Weight="15" Quantity="0" Hide="false" />
+      </Torsos>
+    </Parts>
+    <Robots>
+      <Robot Name="SuperDroid HD2-S" Description="SuperDroid HD2-S Mastiff Tactical Robot" Type="RB-Sdr-81" ModelNo="101" Price="32000" Shipping="500" Hide="false">
+        <Head Name="Head" Description="Robot Sputnik WiFi Mobile " Type="RB-Drr-10" PartNo="201" Cost="1595" Weight="80" Quantity="1" Hide="false" />
+        <Locomotor Name="Locomotor" Description="Zumo Tracked Robot " Type="RB-Pol-282" PartNo="301" Cost="99" Weight="45" Quantity="1" Hide="false" />
+        <Torso Name="Torso" Description="Lynxmotion Johnny 5 Torso" Type="RB-Lyn-366" PartNo="401" Cost="550" Weight="20" Quantity="1" Hide="false" />
+        <Battery Name="Battery" Description="Neato XV NiMH Batteries" Type="RB-Nto-05" PartNo="501" Cost="50" Weight="2" Quantity="2" Hide="false" />
+        <Arm Name="Arm" Description="Lynxmotion AL5A Robotic Arm" Type="RB-Owi-41" PartNo="101" Cost="2500" Weight="300" Quantity="1" Hide="false" />
       </Robot>
-      <Robot Name="SuperDroid HD2" Description="SuperDroid HD2 Robot " Type="RB-Sdr-64" ModelNo="102" Price="10110" Shipping="10110">
-        <Head Name="Head" Description="Robot Sputnik3 WiFi Mobile  " Type="RB-Drr-15" PartNo="202" Cost="1750" Weight="60" Quantity="1" />
-        <Locomotor Name="Locomotor" Description="Zumo 32U4 Robot " Type="RB-Pol-330" PartNo="302" Cost="140" Weight="60" Quantity="1" />
-        <Torso Name="Torso" Description="Lynxmotion Humanoid Biped Torso" Type="RB-Lyn-124" PartNo="402" Cost="230" Weight="15" Quantity="1" />
-        <Battery Name="Battery" Description="Roomba Battery NiMH 3500mAH" Type="RB-Ten-18" PartNo="502" Cost="30" Weight="2" Quantity="2" />
-        <Arm Name="Arm" Description="Mover6 6DOF Robot Arm " Type="RB-Lyn-842" PartNo="102" Cost="2699" Weight="400" Quantity="2" />
+      <Robot Name="SuperDroid HD2" Description="SuperDroid HD2 Robot " Type="RB-Sdr-64" ModelNo="102" Price="10110" Shipping="500" Hide="true">
+        <Head Name="Head" Description="Robot Sputnik3 WiFi Mobile  " Type="RB-Drr-15" PartNo="202" Cost="1750" Weight="60" Quantity="1" Hide="false" />
+        <Locomotor Name="Locomotor" Description="Zumo 32U4 Robot " Type="RB-Pol-330" PartNo="302" Cost="140" Weight="60" Quantity="1" Hide="false" />
+        <Torso Name="Torso" Description="Lynxmotion Humanoid Biped Torso" Type="RB-Lyn-124" PartNo="402" Cost="230" Weight="15" Quantity="1" Hide="false" />
+        <Battery Name="Battery" Description="Roomba Battery NiMH 3500mAH" Type="RB-Ten-18" PartNo="502" Cost="30" Weight="2" Quantity="2" Hide="false" />
+        <Arm Name="Arm" Description="Mover6 6DOF Robot Arm " Type="RB-Lyn-842" PartNo="102" Cost="2699" Weight="400" Quantity="2" Hide="false" />
       </Robot>
-      <Robot Name="High Mobility Robot" Description="Guardian All Terrain High Mobility Robot" Type="RB-Rtk-02" ModelNo="103" Price="36735" Shipping="36735">
-        <Head Name="Head" Description="Robot DRK8080 WiFi Mobile" Type="RB-Drr-01" PartNo="203" Cost="1190" Weight="50" Quantity="1" />
-        <Locomotor Name="Locomotor" Description="Line Following Robot " Type="RB-Dig-99" PartNo="303" Cost="160" Weight="50" Quantity="1" />
-        <Torso Name="Torso" Description="Lynxmotion 209 Biped Torso" Type="RB-Lyn-196" PartNo="403" Cost="150" Weight="10" Quantity="1" />
-        <Battery Name="Battery" Description="Lithium Polymer Battery" Type="RB-Spa-672" PartNo="503" Cost="10" Weight="1" Quantity="2" />
-        <Arm Name="Arm" Description="Mover4 Robot Arm" Type="RB-Rbo-85" PartNo="103" Cost="1800" Weight="350" Quantity="2" />
+      <Robot Name="High Mobility Robot" Description="Guardian All Terrain High Mobility Robot" Type="RB-Rtk-02" ModelNo="103" Price="36735" Shipping="500" Hide="false">
+        <Head Name="Head" Description="Robot DRK8080 WiFi Mobile" Type="RB-Drr-01" PartNo="203" Cost="1190" Weight="50" Quantity="1" Hide="false" />
+        <Locomotor Name="Locomotor" Description="Line Following Robot " Type="RB-Dig-99" PartNo="303" Cost="160" Weight="50" Quantity="1" Hide="false" />
+        <Torso Name="Torso" Description="Lynxmotion 209 Biped Torso" Type="RB-Lyn-196" PartNo="403" Cost="150" Weight="10" Quantity="1" Hide="false" />
+        <Battery Name="Battery" Description="Lithium Polymer Battery" Type="RB-Spa-672" PartNo="503" Cost="10" Weight="1" Quantity="2" Hide="false" />
+        <Arm Name="Arm" Description="Mover4 Robot Arm" Type="RB-Rbo-85" PartNo="103" Cost="1800" Weight="350" Quantity="2" Hide="false" />
       </Robot>
-      <Robot Name="Autonomous Robot" Description="Summit XL 4WD Autonomous Robot" Type="RB-Rtk-04" ModelNo="104" Price="13831" Shipping="13831">
-        <Head Name="Head" Description="Robot X80 WiFi Mobile" Type="RB-Drr-09" PartNo="204" Cost="1295" Weight="70" Quantity="1" />
-        <Locomotor Name="Locomotor" Description="Agent 390 Tracked Robot " Type="RB-Sct-935" PartNo="304" Cost="389" Weight="50" Quantity="1" />
-        <Torso Name="Torso" Description="Lynxmotion Biped Scout Torso" Type="RB-Lyn-197" PartNo="404" Cost="160" Weight="15" Quantity="1" />
-        <Battery Name="Battery" Description="Vex 7.2V. 3000mAH NiMh Battery" Type="RB-Inn-178" PartNo="504" Cost="30" Weight="1" Quantity="3" />
-        <Arm Name="Arm" Description="MeArm Nuka Robotic Arm" Type="RB-Hex-54" PartNo="104" Cost="1850" Weight="200" Quantity="2" />
+      <Robot Name="Autonomous Robot" Description="Summit XL 4WD Autonomous Robot" Type="RB-Rtk-04" ModelNo="104" Price="13831" Shipping="500" Hide="false">
+        <Head Name="Head" Description="Robot X80 WiFi Mobile" Type="RB-Drr-09" PartNo="204" Cost="1295" Weight="70" Quantity="1" Hide="false" />
+        <Locomotor Name="Locomotor" Description="Agent 390 Tracked Robot " Type="RB-Sct-935" PartNo="304" Cost="389" Weight="50" Quantity="1" Hide="false" />
+        <Torso Name="Torso" Description="Lynxmotion Biped Scout Torso" Type="RB-Lyn-197" PartNo="404" Cost="160" Weight="15" Quantity="1" Hide="false" />
+        <Battery Name="Battery" Description="Vex 7.2V. 3000mAH NiMh Battery" Type="RB-Inn-178" PartNo="504" Cost="30" Weight="1" Quantity="3" Hide="false" />
+        <Arm Name="Arm" Description="MeArm Nuka Robotic Arm" Type="RB-Hex-54" PartNo="104" Cost="1850" Weight="200" Quantity="2" Hide="false" />
       </Robot>
-    </Catalog>
+      <Robot Name="SuperDroid HD2-W" Description="SuperDroid HD2-W Mastiff Tactical Robot" Type="RB-Sdr-90" ModelNo="106" Price="20000" Shipping="800" Hide="false">
+        <Head Name="Head" Description="Robot X80 WiFi Mobile" Type="RB-Drr-09" PartNo="204" Cost="1295" Weight="70" Quantity="1" Hide="false" />
+        <Locomotor Name="Locomotor" Description="Zumo Tracked Robot " Type="RB-Pol-282" PartNo="301" Cost="99" Weight="45" Quantity="1" Hide="false" />
+        <Battery Name="Battery" Description="Lithium Polymer Battery" Type="RB-Spa-672" PartNo="503" Cost="10" Weight="1" Quantity="3" Hide="false" />
+        <Arm Name="Arm" Description="Lynxmotion AL5A Robotic Arm" Type="RB-Owi-41" PartNo="101" Cost="2500" Weight="300" Quantity="2" Hide="false" />
+      </Robot>
+    </Robots>
     <SalesOrders>
-      <SalesOrder OrderNo="1000" SalesAssoc="SteveW" Customer="John Smith" TotalPrice="85057.5" Subtotal="78831" TotalShip="1000" Tax="6226.48">
+      <SalesOrder OrderNo="1000" SalesAssoc="SteveW" Customer="John Smith" TotalPrice="84557.5" Subtotal="78331" TotalShip="500" Tax="6226.48">
         <OrderItem Name="SuperDroid HD2-S" Quantity="2" Price="32000" TotalCost="64000" />
         <OrderItem Name="Autonomous Robot" Quantity="1" Price="13831" TotalCost="13831" />
       </SalesOrder>
@@ -42,6 +82,7 @@
     <Customers>
       <Customer Name="John Smith" />
       <Customer Name="Karen Sears" />
+      <Customer Name="Tom Smith" />
     </Customers>
     <SalesAssocs>
       <SalesAssoc Name="SteveW" />

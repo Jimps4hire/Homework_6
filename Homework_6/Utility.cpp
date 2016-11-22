@@ -1,14 +1,5 @@
 #include "StdAfx.h"
 #include "Utility.h"
-#include <FL/Fl.H>
-#include <FL/Fl_Box.H>
-#include <FL/Fl_Button.H>
-#include <FL/Fl_Return_Button.H>
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Input.H>
-#include <FL/Fl_Secret_Input.H>
-#include <FL/x.H>
-#include <FL/fl_draw.H>
 #include <sstream>
 
 using namespace std;
@@ -22,5 +13,16 @@ double string_to_double( const std::string& s )
 		return 0;
 	return x;
 } 
+string int_to_string( int num )
+{
+	return to_string((long double)num);
+}
+string double_to_string( double num )
+{
+	return to_string((long double)num);
+}
+
+
+
 
 

@@ -14,6 +14,7 @@ RobotModel::RobotModel(string p_name, string p_description, string p_type, int p
 	head = NULL;
 	battery = NULL;
 	torso = NULL;
+	hide = false;
 }
 
 
@@ -28,6 +29,10 @@ string RobotModel::getName()
 {
 	return name;
 }
+string RobotModel::getType()
+{
+	return type;
+}
 double RobotModel::getPrice()
 {
 	return price;
@@ -35,6 +40,14 @@ double RobotModel::getPrice()
 double RobotModel::getShipping()
 {
 	return shipping;
+}
+void RobotModel::setHide(bool p_hide)
+{
+	hide = p_hide;
+}
+bool RobotModel::getHide()
+{
+	return hide;
 }
 
 bool RobotModel::addPart(RobotPart* p_part, int p_quantity)
@@ -154,9 +167,18 @@ void RobotModel::serialize(XmlDocument^ p_doc, XmlElement^ p_elm)
 	String^ pr = gcnew String(strPr.c_str());
 	p_elm->SetAttribute("Price", pr);
 
-	string strSh = to_string((long double)price);
+	string strSh = to_string((long double)shipping);
 	String^ sh = gcnew String(strSh.c_str());
 	p_elm->SetAttribute("Shipping", sh);
+
+	if(hide)
+	{
+		p_elm->SetAttribute("Hide", "true");
+	}
+	else
+	{
+		p_elm->SetAttribute("Hide", "false");
+	}
 
 	if(head != NULL)
 	{
@@ -207,33 +229,37 @@ RobotModel* RobotModel::deserialize(XmlElement^ p_elm)
 	String^ attrPrice = p_elm->GetAttribute("Price");
 //	string price = msclr::interop::marshal_as<std::string>(attrPrice);
 	String^ attrShipping = p_elm->GetAttribute("Shipping");
+	String^ attrHide = p_elm->GetAttribute("Hide");
+	std::string hide = msclr::interop::marshal_as<std::string>(attrHide);
 
 	RobotModel* robot = new RobotModel(name, desc, strtype, Convert::ToInt32(attrModelNo), Convert::ToSingle(attrPrice), Convert::ToSingle(attrShipping));
+	if(hide == "true")
+	{
+		robot->setHide(true);
+	}
 
    if ( p_elm->HasChildNodes )
    {
       for ( int i = 0; i < p_elm->ChildNodes->Count; i++ )
       {
 		XmlElement^ note = (XmlElement^)p_elm->ChildNodes[ i ];
-		String^ attrPartName = note->GetAttribute("Name");
-		string partName = msclr::interop::marshal_as<std::string>(attrName);
-		if(partName == "Arm")
+		if(note->Name == "Arm")
 		{
 			robot->arm = RobotPart::deserialize(note);
 		}
-		else if(partName == "Locomotor")
+		else if(note->Name == "Locomotor")
 		{
 			robot->locomotor = RobotPart::deserialize(note);
 		}
-		else if(partName == "Head")
+		else if(note->Name == "Head")
 		{
 			robot->head = RobotPart::deserialize(note);
 		}
-		else if(partName == "Battery")
+		else if(note->Name == "Battery")
 		{
 			robot->battery = RobotPart::deserialize(note);
 		}
-		else if(partName == "Torso")
+		else if(note->Name == "Torso")
 		{
 			robot->torso = RobotPart::deserialize(note);
 		}

@@ -23,6 +23,6 @@ public:
 	RobotModel* GetRobotModel(int modelNo);
 	void ViewCatalog();
 	void serialize(XmlDocument^ p_doc, XmlElement^ p_elm);
-	void deserialize(XmlElement^ p_elm);
+	static Product* deserialize(XmlElement^ p_elm);
 };
 

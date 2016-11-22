@@ -114,6 +114,9 @@ void RobotShop::serialize(string fileName)
 	XmlElement^ elm = doc->CreateElement("Root");
 	elmShop->AppendChild(elm);
 
+	// parts
+	inventory->serialize(doc, elm);
+
 	// product
 	product->serialize(doc, elm);
 
@@ -170,6 +173,7 @@ void RobotShop::deserialize(string fileName)
 	fileOpened = true;
 
 	XmlDocument^ doc = gcnew XmlDocument;
+	// cannot use LoadXml as it has special requirement on schema
 //    doc->LoadXml("RobotShop.xml");
 	String^ file = gcnew String(fileName.c_str());
     doc->Load(file);
@@ -179,9 +183,25 @@ void RobotShop::deserialize(string fileName)
 		for ( int i = 0; i < firstChild->ChildNodes->Count; i++ )
 		{
 			XmlElement^ note = (XmlElement^)firstChild->ChildNodes[ i ];
-            if (note->Name == "Catalog")
+	        if (note->Name == "Parts")
             {
-				product->deserialize(note);
+				inventory = Inventory::deserialize(note);
+			}
+            else if (note->Name == "Robots")
+            {
+				product = Product::deserialize(note);
+			}
+	        else if (note->Name == "SalesOrders")
+            {
+				if ( note->HasChildNodes )
+				{
+					for ( int i = 0; i < note->ChildNodes->Count; i++ )
+					{
+						XmlElement^ noteChild = (XmlElement^)note->ChildNodes[ i ];
+						SalesOrder* order = SalesOrder::deserialize(noteChild);
+						salesOrders.push_back(order);
+					}
+				}
 			}
 	        else if (note->Name == "Customers")
             {
@@ -207,33 +227,7 @@ void RobotShop::deserialize(string fileName)
 					}
 				}
 			}
-	        else if (note->Name == "SalesOrders")
-            {
-				if ( note->HasChildNodes )
-				{
-					for ( int i = 0; i < note->ChildNodes->Count; i++ )
-					{
-						XmlElement^ noteChild = (XmlElement^)note->ChildNodes[ i ];
-						SalesOrder* order = SalesOrder::deserialize(noteChild);
-						salesOrders.push_back(order);
-					}
-				}
-			}
 		}
 	}
-	/*
-	XmlElement^ firstChild = (XmlElement^)doc->FirstChild;
-	if ( firstChild->HasChildNodes )
-	{
-		for ( int i = 0; i < firstChild->ChildNodes->Count; i++ )
-		{
-			XmlElement^ note = (XmlElement^)firstChild->ChildNodes[ i ];
-            if (note->Name == "Catalog")
-            {
-				product->deserialize(note);
-			}
-		}
-	}
-	*/
 }
 

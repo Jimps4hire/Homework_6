@@ -24,23 +24,43 @@ SalesOrder::SalesOrder(int p_orderNo, string p_salesAssoc, string p_customer, do
 SalesOrder::~SalesOrder(void)
 {
 }
-void SalesOrder::addItem(string p_name, double p_quantity, double p_price, double p_shipping)
+void SalesOrder::setShipping(double p_shiping)
 {
-	// subtotal: price*quantity + shipping
-	tax += p_price * p_quantity * 0.08;
-	totalShip += p_shipping;
-	subtotal += p_price * p_quantity + p_shipping;
+	totalShip = p_shiping;
+	calculate();
+}
+list<OrderItem*> SalesOrder::getItems()
+{
+	return items;
+}
+void SalesOrder::addItem(string p_name, double p_quantity, double p_price/*, double p_shipping*/)
+{
+	OrderItem* item = new OrderItem(p_name, p_quantity, p_price, p_quantity * p_price);
+	items.push_back(item);
+
+	calculate();
+}
+void SalesOrder::calculate()
+{
+	double price = 0;
+
+	if(items.size() > 0)
+	{
+		for(std::list<OrderItem*>::const_iterator iterator = items.begin(), end = items.end(); iterator != end; ++iterator) 
+		{			
+			OrderItem* item = *iterator;
+			price += item->getTotalCost();
+		}
+	}
+	tax = price * 0.08;
+
+	subtotal = price + totalShip;
 
 	totalPrice = subtotal + tax;
-
-	OrderItem* item = new OrderItem(p_name, p_quantity, p_price, p_quantity * p_price);
-	list.push_back(item);
-
-
 }
 void SalesOrder::addItem(OrderItem* item)
 {
-	list.push_back(item);
+	items.push_back(item);
 }
 /*
 	int orderNo;
@@ -92,9 +112,9 @@ void SalesOrder::serialize(XmlDocument^ p_doc, XmlElement^ p_elm)
 	String^ tax = gcnew String(strTax.c_str());
 	p_elm->SetAttribute("Tax", tax);
 
-	if(list.size() > 0)
+	if(items.size() > 0)
 	{
-		for(std::list<OrderItem*>::const_iterator iterator = list.begin(), end = list.end(); iterator != end; ++iterator) 
+		for(std::list<OrderItem*>::const_iterator iterator = items.begin(), end = items.end(); iterator != end; ++iterator) 
 		{			
 			XmlElement^ elmItem = p_doc->CreateElement("OrderItem");
 			p_elm->AppendChild(elmItem);

@@ -62,7 +62,7 @@ void Product::serialize(XmlDocument^ p_doc, XmlElement^ p_elm)
 {
 	if(list.size() > 0)
 	{
-		XmlElement^ elm = p_doc->CreateElement("Catalog");
+		XmlElement^ elm = p_doc->CreateElement("Robots");
         p_elm->AppendChild(elm);
 
 		for(std::list<RobotModel*>::const_iterator iterator = list.begin(), end = list.end(); iterator != end; ++iterator) 
@@ -74,20 +74,23 @@ void Product::serialize(XmlDocument^ p_doc, XmlElement^ p_elm)
 		}
 	}
 }
-void Product::deserialize(XmlElement^ p_elm)
+Product* Product::deserialize(XmlElement^ p_elm)
 {
+	Product* product = new Product(); 
+	/*
 	if(list.size() > 0)
 	{
 		list.clear();
 	}
-
+	*/
 	if ( p_elm->HasChildNodes )
 	{
 		for ( int i = 0; i < p_elm->ChildNodes->Count; i++ )
 		{
 			XmlElement^ note = (XmlElement^)p_elm->ChildNodes[ i ];
 			RobotModel* robot = RobotModel::deserialize(note);
-			list.push_back(robot);
+			product->list.push_back(robot);
 		}
 	}
+	return product;
 }

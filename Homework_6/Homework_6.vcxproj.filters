@@ -55,9 +55,6 @@
     <ClInclude Include="Product.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RobotCatalog.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RobotModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -106,6 +103,21 @@
     <ClInclude Include="UI_RobotPart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UI_RobotModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Control_Table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_BrowseCatalog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_EditRobotPart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_EditRobotModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -127,9 +139,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Product.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RobotCatalog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RobotModel.cpp">
@@ -181,6 +190,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UI_RobotPart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_RobotModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Control_Table.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_BrowseCatalog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_EditRobotPart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_EditRobotModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
